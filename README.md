@@ -1,1 +1,1 @@
-Simple example of consume the github jobs api using fetchJsonp and react.
+Simple example of how to consume the github jobs api using fetchJsonp and react.
