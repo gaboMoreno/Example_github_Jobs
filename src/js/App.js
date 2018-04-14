@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PositionsList from './positionsList';
 import fetchJsonp from 'fetch-jsonp';
-import logo from './logo.svg';
-import './App.css';
+import logo from './../img/logo.svg';
+import './../css/App.css';
 import InputFilter from './inputFilter';
 
 
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   changeFilter = (event) => {
-    if(event.key != "Enter")
+    if(event.key !== "Enter")
       return;
 
     let propName = event.target.name;
@@ -32,7 +32,6 @@ class App extends Component {
     fetchJsonp(`https://jobs.github.com/positions.json?description=${this.description}&location=${this.location}`)
     .then(response => response.json())
     .then(positions => this.setState( (pre) => ({positions:positions}) ) )
-    .then(_=> this.loading = false)
     .catch(error => console.log(error));
   }
 

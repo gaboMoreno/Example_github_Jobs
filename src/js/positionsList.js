@@ -6,11 +6,7 @@ const PositionInfo = ( props ) =>(
   )
   
   class PositionsList extends Component{
-    constructor(props){
-      super(props)
-    }
-  
-
+    
     render(){
         return (
           <div>
