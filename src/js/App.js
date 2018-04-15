@@ -2,23 +2,27 @@ import React, { Component } from 'react';
 import PositionsList from './positionsList';
 import fetchJsonp from 'fetch-jsonp';
 import logo from './../img/logo.svg';
-import './../css/App.css';
 import InputFilter from './inputFilter';
 
+import './../css/App.css';
 
 class App extends Component {
   constructor(props){
     super(props);
 
-    this.description= "python";
-    this.location= "new york";
+    this.description= "";
+    this.location= "";
+    this.full_time = false;
 
     this.state = {
-      positions: []
+      positions: [],
+      loading:true
     }
+
+    this.doSearch= this.doSearch.bind(this);
   }
 
-  changeFilter = (event) => {
+  changeFilterText = (event) => {
     if(event.key !== "Enter")
       return;
 
@@ -28,10 +32,27 @@ class App extends Component {
     this.getData();
   }
 
+
+  changeFilterInput = (event) => {
+    console.log(event.target.name );
+     let propName = event.target.name;
+     let value = event.target.checked;
+     this[propName] = value;
+     this.getData();
+  }
+
+  doSearch(){
+    this.description = document.getElementById("description").value;
+    this.location = document.getElementById("location").value;
+    this.getData();
+  }
+
   getData(){
-    fetchJsonp(`https://jobs.github.com/positions.json?description=${this.description}&location=${this.location}`)
+    this.setState({loading: true});
+
+    fetchJsonp(`https://jobs.github.com/positions.json?description=${this.description}&location=${this.location}&${this.full_time? "&full_time=true":""}`)
     .then(response => response.json())
-    .then(positions => this.setState( (pre) => ({positions:positions}) ) )
+    .then(positions => this.setState( (pre) => ({positions:positions, loading:false}) ) )
     .catch(error => console.log(error));
   }
 
@@ -42,9 +63,7 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-         <InputFilter label="Description: " name="description" onKeyPress={this.changeFilter} placeholder="ex: Python"/>
-         <InputFilter label="Location: "    name="location" onKeyPress={this.changeFilter} placeholder="ex: new york"/>
-         <PositionsList positions={this.state.positions}/>
+         <PositionsList loading={this.state.loading} positions={this.state.positions} doSearch={this.doSearch} changeFilterInput={this.changeFilterInput}  changeFilterText={this.changeFilterText}/>
       </React.Fragment>
     );
   }

@@ -30,3 +30,12 @@ div.inputGroup{
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.card_img{
+  min-height: 10em;
+  max-height: 13em;
+}
+
+.card_img_left{
+  max-width: 40vw;
+}
