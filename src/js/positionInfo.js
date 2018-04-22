@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Row, Col, Card, CardImg,CardSubtitle, CardBody, CardTitle, CardText, Button, FormGroup, Label, Input} from 'reactstrap';
 
 const PositionInfo = ( props ) =>{
@@ -8,11 +8,11 @@ const PositionInfo = ( props ) =>{
   return (
     <Col md={3} className="py-3">
       <Card   className="text-center h-100">
-        <CardImg top className="card_img d-none d-md-block"  src={job.company_logo ? job.company_logo:"https://placeholdit.imgix.net/~text?txtsize=23&txt=Image_not_avaliable&w=256&h=200"} alt="Card image cap" />
+        <CardImg top className="card_img d-none d-md-block"  src={job.company_logo ? job.company_logo:"https://placeholdit.imgix.net/~text?txtsize=23&txt=Image_not_avaliable&w=256&h=200"} alt="problem with the image" />
         <CardBody>
           <Row>
           <Col xs={6} className="d-lg-none d-md-none">
-            <img  className="card_img card_img_left "  src={job.company_logo ? job.company_logo:"https://placeholdit.imgix.net/~text?txtsize=23&txt=Image_not_avaliable&w=256&h=200"} alt="Card image cap" />
+            <img  className="card_img card_img_left "  src={job.company_logo ? job.company_logo:"https://placeholdit.imgix.net/~text?txtsize=23&txt=Image_not_avaliable&w=256&h=200"} alt="Problem..." />
           </Col>
 
           <Col xs={6} sm={6} md={12}>

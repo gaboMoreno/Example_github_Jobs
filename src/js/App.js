@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PositionsList from './positionsList';
 import fetchJsonp from 'fetch-jsonp';
-import logo from './../img/logo.svg';
-import InputFilter from './inputFilter';
 
 import './../css/App.css';
 

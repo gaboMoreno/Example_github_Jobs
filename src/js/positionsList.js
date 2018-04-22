@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PositionInfo from './positionInfo';
-import {FormGroup, Label, Progress, InputGroup,InputGroupText, InputGroupAddon,Input,Button,Row, Col,Card, CardText, CardBody,CardHeader } from 'reactstrap';
+import {FormGroup, Label, Progress, InputGroup,InputGroupText, InputGroupAddon,Input,Button,Row, Col,Card, CardBody,CardHeader } from 'reactstrap';
 
 
   class PositionsList extends Component{
@@ -47,7 +47,7 @@ import {FormGroup, Label, Progress, InputGroup,InputGroupText, InputGroupAddon,I
                   </Row>
 
                   <Row>
-                    { this.props.positions.length == 0 && !this.props.loading && <Col><p> Sorry, no results avaliable </p> </Col>}  
+                    { this.props.positions.length === 0 && !this.props.loading && <Col><p> Sorry, no results avaliable </p> </Col>}  
                     { this.props.loading && 
                         <Col lg={12}>
                             <p> Loading... </p> 
